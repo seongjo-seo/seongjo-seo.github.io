@@ -1,0 +1,10 @@
+.navbar-nav {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-brand {
+  margin-right: auto;
+  margin-left: 0;
+}
