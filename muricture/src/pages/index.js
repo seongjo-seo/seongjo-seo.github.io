@@ -1,86 +1,68 @@
+import Hero from '@/components/home/hero';
+import Layout from '@/components/layout';
+
 import Head from 'next/head';
-import Header from "@/components/common/Header";
-import Footer from '@/components/common/Footer';
+
 
 const Home = () => {
   return (
-    <>
+    <Layout>
       <Head>
         <title>Muricture</title>
         <meta name="description" content="Muricture에서는 작품, 콘텐츠, 물건 등 다양한 창작물을 만드는 플랫폼 환경 구성을 목표로 하고 있습니다." />
         <meta name="og:title" content="창의력을 위한 플랫폼 Muricture입니다." />
         <meta name="og:description" content="다양한 작품들을 만들고, 소통해 봐요!" />
         <meta name="og:image" content="./img/Muricture.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="google-site-verification" content="..." />
       </Head>
+      <main>
+
+        <section className="flex min-h-screen flex-col items-center justify-center text-gray-600 body-font">
+          <div className="container mx-auto flex px-12 py-24 md:flex-row flex-col items-center">
+            <Hero/>
+          </div>
+        </section>
+
+        <section class="text-gray-600 body-font">
+          <div className="container mx-auto py-10">
+
+            <div className="container md:pl-16  mx-auto flex px-5 py-24 flex-col items-center">
+                <div className="container border-b border-gray-300">
+                  <h2 className="text-3xl font-bold text-gray-800 mb-4 ">About Us</h2>
+                </div>
+
+              <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+
+                  <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left items-center text-center">
+                    <h1 className="title-font font-bold sm:text-4xl text-3xl mb-4 text-gray-900">Service</h1>
+                    <p className="mb-8 leading-relaxed">창작할 수 있는 다양한 가치속에서 창작자 모두가 수익을 낼 수 있는 방향을 지향합니다. <br/> 인스타툰, 자기 캐릭터 툰, 썰 툰 등등 다양한 캐릭터들이 활동할 수 있는 플랫폼을 만드는 것을 목표로 합니다.</p>
+                    <div className="flex justify-center">
+                      <button className="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">서비스 시작하기</button>
+                    </div>
+                  </div>
+                  <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+                    <img src="./img/main_2.png" alt="..." className="mx-auto" />
+                  </div>
+              </div>
+              <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+                <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+                  <img src="./img/main_3.png" alt="..." className="mx-auto" />
+                </div>
+                <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+                  <h1 className="title-font font-bold sm:text-4xl text-3xl mb-4 text-gray-900">Team</h1>
+                  <p className="mb-8 leading-relaxed">멈추지 않고 성장하고, 하루가 다르게 성장하는 모습을 보여드리고 싶어요.<br/>꾸준히 무엇을 만들어본 사람들이면 좋겠어요.</p>
+                  <div className="flex justify-center">
+                    <button className="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">소개 보기</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
       
-      <Header/>
-      <div class="py-8"/>
-
-        <section>
-        <main class="">
-          <div class="top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500 text-white">
-            <div class="container ma-auto px-20 ">
-              <img src="./img/main_1.png" alt=".." class="mx-auto w-full" />
-            </div>
-              <h2 class="text-6xl font-bold mb-4">Let's unleash our creativity.</h2>
-              <p class="text-3xl font-bold mb-10 text-center">우리의 창의력을 펼쳐봐요.</p>
-              <div class="flex justify-center pb-20">
-                <button class="bg-blue-300 text-white px-4 py-2 rounded-md mr-4 hover:bg-blue-400">더 알아보기</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">문의하기</button>
-              </div>
-          </div>
-
-        </main>
-        <div class="container mx-auto px-4 py-10">
-          <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">현재는 서비스 이용자를 모집하고 있습니다.</h2>
-          <p class="text-lg text-gray-700 mb-10 text-center">향후 데이터를 공유해 드릴 예정입니다.</p>
-        </div>
-      </section>
-
-
-
-      {/* --- 소개 --- */}
-      <section>
-        <div class="container mx-auto py-10">
-          <h2 class="text-3xl font-bold text-gray-800 mb-4">About Us</h2>
-          <div class="border-b border-gray-300 mb-12"></div>
-          <div class="grid grid-cols-2 gap-8">
-            <div>
-              <h3 class="text-2xl font-bold text-gray-800 mb-4">Service</h3>
-              <p class="text-gray-700 leading-relaxed mb-8">창작할 수 있는 다양한 가치속에서 창작자 모두가 수익을 낼 수 있는 방향을 지향합니다. <br/> 인스타툰, 자기 캐릭터 툰, 썰 툰 등등 다양한 캐릭터들이 활동할 수 있는 플랫폼을 만드는 것을 목표로 합니다.</p>
-              <button class="bg-blue-500 text-white px-4 py-2 rounded-md mr-4">서비스 시작하기</button>
-            </div>
-            <div class="flex justify-center items-center">
-              <div class="container mx-auto py-10 px-5">
-                <img src="./img/main_2.png" alt="..." class="mx-auto" />
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-row gap-8">
-            <div class="order-2">
-              <h3 class="text-2xl font-bold text-gray-800 mb-4">Team</h3>
-              <p class="text-gray-700 leading-relaxed mb-8">멈추지 않고 성장하고, 하루가 다르게 성장하는 모습을 보여드리고 싶어요.<br/>꾸준히 무엇을 만들어본 사람들이면 좋겠어요.</p>
-              <button class="bg-blue-500 text-white px-4 py-2 rounded-md mr-4">팀 소개 보기</button>
-            </div>
-            <div class="order-1 flex justify-center items-center">
-              <div class="container mb-12 max-w-2/5 max-h-2/5 py-auto px-5">
-                <img src="./img/main_3.png" alt="..." class="mx-auto" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    <section class="container mx-auto py-10 px-5">
-      <div class="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
-        <p class="text-lg font-semibold text-center text-gray-800">창작의 가치를 더하고 함께 나아갈 수 있으면 좋겠습니다.</p>
-      </div>
-    </section>
-      
-      <Footer/>
-
-    </>
+    </Layout>
   )
 }
 
