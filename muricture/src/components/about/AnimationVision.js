@@ -6,6 +6,7 @@ import VisionJson from "../../../public/about/AnimationVision.json"
 const AnimationVision = () =>{
   return(
     <Lottie
+      className="max-w-md"
       loop
       animationData={VisionJson}
       play

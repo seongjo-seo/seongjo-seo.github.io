@@ -17,11 +17,10 @@ const service = () =>{
           <meta name="google-site-verification" content="..." />
         </Head>
 
-        <section className='flex min-h-screen flex-col items-center justify-center'>
-
-        </section>
-
+      <section class="flex min-h-screen flex-col items-center justify-center">
         <Info/>
+      </section>
+
       </Layout>
   )
 }

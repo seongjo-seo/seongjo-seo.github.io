@@ -24,4 +24,8 @@ module.exports = {
     },
   },
   plugins: [],
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.html', './src/**/*.js'],
+  },
 }
