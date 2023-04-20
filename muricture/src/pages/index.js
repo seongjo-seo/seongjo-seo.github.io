@@ -5,7 +5,9 @@ import Head from 'next/head';
 
 
 const Home = () => {
+  const naverKey = process.env.NAVER_SITE;
   return (
+    
     <Layout>
       <Head>
         <title>Muricture</title>
@@ -15,6 +17,7 @@ const Home = () => {
         <meta name="og:image" content="./img/Muricture.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="google-site-verification" content="..." />
+        <meta name="naver-site-verification" content={naverKey}/>
       </Head>
       <main>
 
