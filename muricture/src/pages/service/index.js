@@ -19,9 +19,18 @@ const service = () =>{
           <meta name="google-site-verification" content="..." />
           <meta name="naver-site-verification" content={naverKey} />
         </Head>
+      
 
-      <section class="flex min-h-screen flex-col items-center justify-center">
+
+      <section className="flex min-h-screen flex-col items-center justify-center">
         <Info/>
+      </section>
+
+      {/* <section className="container items-center justify-center">   */}
+      <section className='container mx-auto flex px-5 py-24 md:flex-row flex-col items-center justify-center'>
+        <div className='bg-gradient-to-r from-blue-500 to-violet-500 md:mb-0 justify-center items-center'>
+          <a href="https://discord.gg/rTrnhkJq" className='text-white font-bold'>디스코드 합류하기</a>
+        </div>
       </section>
 
       </Layout>

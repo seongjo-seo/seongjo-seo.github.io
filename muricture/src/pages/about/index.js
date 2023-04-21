@@ -75,27 +75,6 @@ const about = () =>{
               </div>
             </div>
           </div>
-
-          {/* <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Brand</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white hover:shadow-md shadow p-8">
-                <i className="ti-palette text-4xl mb-5"></i>
-                <h4 className="text-xl font-bold mb-4">UI Design</h4>
-                <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-              <div className="bg-primary hover:shadow-md shadow p-8">
-                <i className="ti-vector text-4xl mb-5"></i>
-                <h4 className="text-xl font-bold mb-4 text-white">UX Design</h4>
-                <p className="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-              <div className="bg-white hover:shadow-md shadow p-8">
-                <i className="ti-panel text-4xl mb-5"></i>
-                <h4 className="text-xl font-bold mb-4">Interaction Design</h4>
-                <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-            </div>
-          </div> */}
         </section>
 
         <section className="text-gray-600 body-font">
