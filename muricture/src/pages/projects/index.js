@@ -1,14 +1,10 @@
-import Mission from "@/components/about/Mission";
-import BrandMeaning from "@/components/about/BrandMeaning";
-import Team from "@/components/about/Team";
-import Vision from "@/components/about/Vision";
-
+import Space from "@/components/common/Space";
 import Layout from "@/components/layout";
+import Info from "@/components/Projects/info";
 
 import Head from "next/head";
-import Space from "@/components/common/Space";
 
-const About = () => {
+const Projects = () => {
   return (
     <Layout>
       <Head>
@@ -30,20 +26,11 @@ const About = () => {
         <Space />
       </section>
 
-      <section className="container flex-col px-5 py-2 mx-auto">
-        <Vision />
-        <Mission />
-      </section>
-
-      <section className="flex min-h-3/4 flex-col items-center justify-center text-white-400 body-font">
-        <BrandMeaning />
-      </section>
-
-      <section className="flex min-h-3/4 flex-col items-center justify-center text-gray-600 body-font">
-        <Team />
+      <section className="flex min-h-3/4 flex-col items-center justify-center">
+        <Info />
       </section>
     </Layout>
   );
 };
 
-export default About;
+export default Projects;

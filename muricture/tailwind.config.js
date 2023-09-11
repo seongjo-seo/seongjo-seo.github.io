@@ -1,31 +1,32 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
+  mode: "jit",
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/app/**/*.{js,ts,jsx,tsx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/app/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     screens: {
-      'sm': '480px',
-      'md': '768px',
-      'lg': '976px',
-      'xl': '1440px',
-      '2xl': '1536px',
+      sm: "350px",
+      md: "634px",
+      lg: "1240px",
     },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      backgroundColor: {
+        "dark-mode": "rgba(9, 13, 31, 0.9)", // 사용자 정의 다크 모드 배경색
+      },
+      textColor: {
+        "light-mode": "black",
+        "dark-mode": "white",
       },
     },
   },
   plugins: [],
   purge: {
     enabled: true,
-    content: ['./src/**/*.html', './src/**/*.js'],
+    content: ["./src/**/*.html", "./src/**/*.js"],
   },
-}
+  variants: {},
+};
