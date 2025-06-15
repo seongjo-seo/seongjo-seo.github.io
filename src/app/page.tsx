@@ -12,12 +12,12 @@ export default async function HomePage() {
           <h1>일상을 기록하고, 미래를 계획하세요</h1>
           <p>Muricture와 함께 혁신적인 일정 관리와 일상 기록을 경험하세요</p>
           <div className="hero-buttons">
-            <Link href="/services/muricture-web" className="btn btn-white">
+            <Link href="https://www.muricture.com/" className="btn btn-white" target="_blank">
               Muricture 웹 시작하기
             </Link>
-            <Link href="/services/planaz-app" className="btn btn-outline">
+            {/* <Link href="/services/planaz-app" className="btn btn-outline">
               Planaz 앱 다운로드
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>
@@ -90,7 +90,7 @@ export default async function HomePage() {
       </section>
 
       {/* 최신 소식 섹션 */}
-      <section className="section">
+      {/* <section className="section">
         <div className="container">
           <h2>최신 소식</h2>
           <div className="news-grid">
@@ -109,10 +109,10 @@ export default async function HomePage() {
             <Link href="/blog" className="btn btn-primary">모든 글 보기</Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA 섹션 */}
-      <section className="section bg-light">
+      {/* <section className="section bg-light">
         <div className="container">
           <div className="cta-box">
             <h2>프로젝트를 시작할 준비가 되셨나요?</h2>
@@ -122,7 +122,7 @@ export default async function HomePage() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 } 

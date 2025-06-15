@@ -47,11 +47,15 @@ body {
 
 // 헤더 스타일
 .site-header {
-  background-color: $bg-color;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  // background-color: $bg-color;
+  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.1);
 }
 
 .navbar {
@@ -109,22 +113,50 @@ body {
     text-decoration: none;
     color: $text-color;
     font-weight: 500;
-    transition: color 0.3s;
+    // transition: color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+      transition: width 0.3s ease;
+    }
     
     &:hover {
       color: $primary-color;
+      
+      &::after {
+        width: 100%;
+      }
     }
   }
   
   .btn-primary {
-    background-color: $primary-color;
+    // background-color: $primary-color;
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
     color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 0.375rem;
+    // padding: 0.5rem 1.5rem;
+    // border-radius: 0.375rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
     
     &:hover {
-      background-color: darken($primary-color, 10%);
+      // background-color: darken($primary-color, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
       color: white;
+      
+      &::after {
+        width: 0;
+      }
     }
   }
 }
@@ -135,30 +167,40 @@ body {
   
   &:hover .dropdown-menu {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .dropdown-menu {
   display: none;
+  opacity: 0;
+  transform: translateY(-10px);
   position: absolute;
   top: 100%;
   left: 0;
   background-color: $bg-color;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 0.375rem;
+  // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  // border-radius: 0.375rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
   min-width: 200px;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
   margin-top: 0.5rem;
+  transition: all 0.3s ease;
   
   li {
     list-style: none;
     
     a {
       display: block;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1.5rem;
+      transition: all 0.3s ease;
       
       &:hover {
-        background-color: $bg-light;
+        // background-color: $bg-light;
+        background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), transparent);
+        color: $primary-color;
       }
     }
   }
@@ -167,31 +209,61 @@ body {
 // 메인 콘텐츠
 .site-main {
   min-height: calc(100vh - 80px - 300px);
-  background-color: $bg-light; // Colors.grey[50] 배경
+  // background-color: $bg-light; // Colors.grey[50] 배경
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
 }
 
 // 히어로 섹션
 .hero {
+  // background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
   background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
   color: white;
-  padding: 6rem 0;
+  padding: 8rem 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.15)"/><circle cx="40" cy="70" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="80" r="2.5" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    pointer-events: none;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(180deg, transparent 0%, rgba(248, 250, 252, 0.1) 100%);
+  }
   
   h1 {
-    font-size: 3.5rem;
-    font-weight: $font-weight-title; // FontWeight.w700
+    font-size: 4rem;
+    font-weight: $font-weight-title;
     margin-bottom: $spacing-md;
     line-height: 1.2;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
   }
   
   p {
-    font-size: 1.375rem;
-    font-weight: $font-weight-body;
+    font-size: 1.5rem;
+    font-weight: 300;
     margin-bottom: 3rem;
     opacity: 0.95;
-    max-width: 600px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    z-index: 1;
   }
   
   .hero-buttons {
@@ -199,26 +271,45 @@ body {
     gap: $spacing-md;
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
   }
   
   .btn {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    border-radius: 12px;
+    padding: 1.25rem 2.5rem;
+    border-radius: 2rem;
     text-decoration: none;
-    font-weight: $font-weight-subtitle; // FontWeight.w600
-    transition: all 0.3s ease;
+    font-weight: $font-weight-subtitle;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     font-size: 1.125rem;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    &:hover::before {
+      left: 100%;
+    }
     
     &.btn-white {
       background-color: white;
       color: $primary-color;
-      box-shadow: $card-shadow;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
       
       &:hover {
-        background-color: $bg-light;
-        transform: translateY(-2px);
-        box-shadow: $card-shadow-hover;
+        background-color: #f8fafc;
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
       }
     }
     
@@ -226,12 +317,14 @@ body {
       background-color: transparent;
       color: white;
       border: 2px solid rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
       
       &:hover {
         background-color: white;
         color: $primary-color;
         border-color: white;
-        transform: translateY(-2px);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
       }
     }
   }
@@ -239,64 +332,121 @@ body {
 
 // 섹션 스타일
 .section {
-  padding: 5rem 0;
+  padding: 6rem 0;
+  position: relative;
   
   &.bg-light {
-    background-color: $bg-light;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   }
   
   h2 {
-    font-size: 2.75rem;
-    font-weight: $font-weight-title; // FontWeight.w700
+    font-size: 3rem;
+    font-weight: $font-weight-title;
     text-align: center;
     margin-bottom: 4rem;
     color: $text-color;
     line-height: 1.2;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+      border-radius: 2px;
+    }
   }
 }
 
 // 서비스 카드
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
   margin-bottom: 3rem;
   padding: 0 $spacing-md;
 }
 
 .service-card {
   background-color: $card-bg;
-  border-radius: $card-radius; // 24px 둥근 모서리
-  padding: 2.5rem;
-  box-shadow: $card-shadow; // 은은한 그림자
-  transition: all 0.3s ease;
+  border-radius: $card-radius;
+  padding: 3rem 2.5rem;
+  box-shadow: $card-shadow;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   text-decoration: none;
   color: $text-color;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+  
+  &:nth-child(1)::before { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%); }
+  &:nth-child(2)::before { background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%); }
+  &:nth-child(3)::before { background: linear-gradient(135deg, #45b7d1 0%, #2196f3 100%); }
   
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: $card-shadow-hover; // 호버 시 더 강한 그림자
+    transform: translateY(-12px);
+    box-shadow: $card-shadow-hover;
+    
+    &::before {
+      transform: scaleX(1);
+    }
+    
+    .service-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
   }
   
   .service-icon {
-    font-size: 3.5rem;
-    color: $primary-color;
+    font-size: 4rem;
     margin-bottom: $spacing-lg;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, rgba($primary-color, 0.1) 0%, rgba($primary-color, 0.05) 100%);
-    border-radius: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 2rem;
     margin-left: auto;
     margin-right: auto;
+    transition: all 0.4s ease;
+    
+    i {
+      color: white;
+    }
+  }
+  
+  &:nth-child(1) .service-icon {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+  }
+  
+  &:nth-child(2) .service-icon {
+    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+    box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+  }
+  
+  &:nth-child(3) .service-icon {
+    background: linear-gradient(135deg, #45b7d1 0%, #2196f3 100%);
+    box-shadow: 0 8px 25px rgba(69, 183, 209, 0.3);
   }
   
   h3 {
-    font-size: 1.625rem;
-    font-weight: $font-weight-subtitle; // FontWeight.w600
+    font-size: 1.75rem;
+    font-weight: $font-weight-subtitle;
     margin-bottom: $spacing-md;
     text-align: center;
     color: $text-color;
@@ -304,63 +454,9 @@ body {
   
   p {
     color: $text-light;
-    line-height: 1.7;
+    line-height: 1.8;
     text-align: center;
-    font-size: 1rem;
-  }
-}
-
-// 푸터
-.site-footer {
-  background-color: $text-color;
-  color: white;
-  padding: 3rem 0 1rem;
-  
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .footer-section {
-    h3, h4 {
-      margin-bottom: 1rem;
-    }
-    
-    ul {
-      list-style: none;
-      
-      li {
-        margin-bottom: 0.5rem;
-      }
-    }
-    
-    a {
-      color: rgba(255, 255, 255, 0.8);
-      text-decoration: none;
-      
-      &:hover {
-        color: white;
-      }
-    }
-  }
-  
-  .social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    
-    a {
-      font-size: 1.5rem;
-    }
-  }
-  
-  .footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.05rem;
   }
 }
 
@@ -371,8 +467,8 @@ body {
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
   text-align: center;
   margin: 3rem 0;
 }
@@ -382,155 +478,260 @@ body {
   flex-direction: column;
   align-items: center;
   gap: $spacing-sm;
-  padding: $spacing-lg;
+  padding: 2rem $spacing-lg;
   background-color: $card-bg;
-  border-radius: 16px;
+  border-radius: 1.5rem;
   box-shadow: $card-shadow;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(148, 189, 247, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
   
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px) scale(1.02);
     box-shadow: $card-shadow-hover;
+    
+    &::before {
+      opacity: 1;
+    }
+    
+    i {
+      transform: scale(1.2) rotate(10deg);
+    }
   }
   
   i {
     font-size: 3.5rem;
-    color: $accent-color;
     margin-bottom: 0.5rem;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+    
+    &.fab.fa-react { color: #61dafb; }
+    &.fab.fa-flutter { color: #02569b; }
+    &.fas.fa-database { color: #336791; }
+    &.fas.fa-fire { color: #ffca28; }
+    &.fab.fa-github { color: #333; }
+    &.fas.fa-cloud { color: #4285f4; }
   }
   
   span {
-    font-weight: $font-weight-subtitle; // FontWeight.w600
+    font-weight: $font-weight-subtitle;
     color: $text-color;
     font-size: 1.125rem;
+    position: relative;
+    z-index: 1;
   }
 }
 
+// 뉴스 카드
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
   padding: 0 $spacing-md;
 }
 
 .news-card {
   background: $card-bg;
-  border-radius: $card-radius; // 24px 둥근 모서리
-  padding: 2rem;
-  box-shadow: $card-shadow; // 은은한 그림자
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: $card-radius;
+  padding: 2.5rem;
+  box-shadow: $card-shadow;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
   
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: $card-shadow-hover; // 호버 시 더 강한 그림자
+    transform: translateY(-10px);
+    box-shadow: $card-shadow-hover;
+    
+    &::before {
+      transform: scaleX(1);
+    }
   }
   
   .news-date {
     color: $text-light;
-    font-size: 0.875rem;
-    font-weight: $font-weight-subtitle; // FontWeight.w600
+    font-size: 0.9rem;
+    font-weight: $font-weight-subtitle;
     margin-bottom: $spacing-sm;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    display: inline-block;
   }
   
   h3 {
     margin-bottom: $spacing-md;
-    font-weight: $font-weight-subtitle; // FontWeight.w600
-    font-size: 1.375rem;
+    font-weight: $font-weight-subtitle;
+    font-size: 1.5rem;
     line-height: 1.4;
     
     a {
       color: $text-color;
       text-decoration: none;
+      background: linear-gradient(120deg, transparent 0%, transparent 95%, $primary-color 95%);
+      background-size: 0% 100%;
+      background-repeat: no-repeat;
+      transition: background-size 0.4s ease;
       
       &:hover {
-        color: $primary-color;
+        background-size: 100% 100%;
+        color: $text-color;
       }
     }
   }
   
   p {
     color: $text-light;
-    line-height: 1.7;
+    line-height: 1.8;
     margin-bottom: $spacing-md;
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
   
   .read-more {
-    color: $primary-color;
+    color: white;
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
     text-decoration: none;
-    font-weight: $font-weight-subtitle; // FontWeight.w600
+    font-weight: $font-weight-subtitle;
     font-size: 0.95rem;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(148, 189, 247, 0.3);
     
     &:hover {
-      color: darken($primary-color, 15%);
-      transform: translateX(4px);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(148, 189, 247, 0.4);
     }
   }
 }
 
+// CTA 박스
 .cta-box {
   text-align: center;
   padding: 4rem 3rem;
   background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
   color: white;
-  border-radius: $card-radius; // 24px 둥근 모서리
+  border-radius: $card-radius;
   box-shadow: $card-shadow-hover;
   margin: 0 $spacing-md;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="2" fill="rgba(255,255,255,0.15)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    pointer-events: none;
+  }
   
   h2 {
     color: white;
-    font-weight: $font-weight-title; // FontWeight.w700
-    font-size: 2.25rem;
+    font-weight: $font-weight-title;
+    font-size: 2.5rem;
     margin-bottom: $spacing-md;
     line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    
+    &::after {
+      display: none;
+    }
   }
   
   p {
-    font-size: 1.25rem;
-    font-weight: $font-weight-body;
+    font-size: 1.3rem;
+    font-weight: 300;
     margin-bottom: 3rem;
     opacity: 0.95;
-    max-width: 500px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
+    position: relative;
+    z-index: 1;
   }
 }
 
+// 버튼 스타일
 .btn {
   display: inline-block;
-  padding: 1rem 2.5rem;
-  border-radius: 12px;
+  padding: 1.25rem 2.5rem;
+  border-radius: 2rem;
   text-decoration: none;
-  font-weight: $font-weight-subtitle; // FontWeight.w600
-  transition: all 0.3s ease;
+  font-weight: $font-weight-subtitle;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border: none;
   cursor: pointer;
   font-size: 1.125rem;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
   
   &.btn-primary {
-    background-color: $primary-color;
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
     color: white;
-    box-shadow: $card-shadow;
+    box-shadow: 0 8px 25px rgba(148, 189, 247, 0.3);
     
     &:hover {
-      background-color: darken($primary-color, 10%);
-      transform: translateY(-2px);
-      box-shadow: $card-shadow-hover;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(148, 189, 247, 0.4);
     }
   }
   
   &.btn-lg {
-    padding: 1.25rem 3rem;
+    padding: 1.5rem 3rem;
     font-size: 1.25rem;
-    border-radius: 16px;
   }
 }
 
@@ -540,6 +741,111 @@ body {
 
 .mt-4 {
   margin-top: 2rem;
+}
+
+// 푸터
+.site-footer {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: white;
+  padding: 4rem 0 2rem;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="70" r="0.8" fill="rgba(255,255,255,0.05)"/></svg>');
+    pointer-events: none;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .footer-section {
+    h3, h4 {
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+      font-weight: $font-weight-subtitle;
+      position: relative;
+      padding-bottom: 0.5rem;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+        border-radius: 1px;
+      }
+    }
+    
+    ul {
+      list-style: none;
+      
+      li {
+        margin-bottom: 0.75rem;
+      }
+    }
+    
+    a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      
+      &:hover {
+        color: white;
+        padding-left: 5px;
+      }
+    }
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    
+    a {
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(148, 189, 247, 0.3);
+        padding-left: 0;
+      }
+    }
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    position: relative;
+    z-index: 1;
+  }
 }
 
 // 반응형 디자인
@@ -554,8 +860,10 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: $bg-color;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 0 0 1rem 1rem;
     
     &.active {
       display: block;
@@ -564,7 +872,7 @@ body {
   
   .navbar-nav {
     flex-direction: column;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     gap: 0;
     
     li {
@@ -572,7 +880,11 @@ body {
       
       a {
         display: block;
-        padding: 0.75rem 1rem;
+        padding: 1rem 1.5rem;
+        
+        &::after {
+          display: none;
+        }
       }
     }
   }
@@ -582,74 +894,160 @@ body {
     box-shadow: none;
     background-color: $bg-light;
     margin: 0;
+    border-radius: 0;
   }
   
   .hero {
-    padding: 4rem 0;
+    padding: 5rem 1rem;
     
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: $spacing-sm;
     }
     
     p {
-      font-size: 1.125rem;
-      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
     }
     
     .hero-buttons {
       flex-direction: column;
       align-items: center;
-      gap: $spacing-sm;
+      gap: $spacing-md;
       
       .btn {
         width: 100%;
-        max-width: 280px;
+        max-width: 300px;
         text-align: center;
       }
     }
   }
   
   .section {
-    padding: 3rem 0;
+    padding: 4rem 0;
     
     h2 {
-      font-size: 2.25rem;
-      margin-bottom: 2.5rem;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
     }
   }
   
   .services-grid,
   .news-grid {
     grid-template-columns: 1fr;
-    gap: $spacing-md;
+    gap: 2rem;
     padding: 0 $spacing-sm;
   }
   
   .service-card,
   .news-card {
-    padding: $spacing-md;
+    padding: 2rem;
+    
+    &:hover {
+      transform: translateY(-6px);
+    }
+  }
+  
+  .service-card {
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      font-size: 3.5rem;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+    }
   }
   
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-md;
+    gap: 1.5rem;
   }
   
   .tech-item {
-    padding: $spacing-md;
+    padding: 1.5rem $spacing-md;
+    
+    i {
+      font-size: 3rem;
+    }
+    
+    &:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
   }
   
   .cta-box {
-    padding: 2.5rem $spacing-md;
+    padding: 3rem $spacing-md;
     margin: 0 $spacing-sm;
     
     h2 {
-      font-size: 1.875rem;
+      font-size: 2rem;
     }
     
     p {
-      font-size: 1.125rem;
+      font-size: 1.1rem;
+    }
+  }
+  
+  .site-footer {
+    padding: 3rem 0 1.5rem;
+    
+    .footer-content {
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-section {
+      h3, h4 {
+        font-size: 1.1rem;
+      }
+    }
+    
+    .social-links {
+      justify-content: center;
+      
+      a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 4rem 1rem;
+    
+    h1 {
+      font-size: 2.2rem;
+    }
+    
+    p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  .section h2 {
+    font-size: 2rem;
+  }
+  
+  .service-card,
+  .news-card {
+    padding: 1.5rem;
+  }
+  
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .cta-box {
+    padding: 2.5rem 1.5rem;
+    
+    h2 {
+      font-size: 1.8rem;
     }
   }
 }

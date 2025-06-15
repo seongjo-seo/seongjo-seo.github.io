@@ -42,9 +42,9 @@ export default function Header() {
                   <li><Link href="/services/outsourcing">외주 개발</Link></li>
                 </ul>
               </li>
-              <li><Link href="/docs">기술 문서</Link></li>
-              <li><Link href="/blog">개발 블로그</Link></li>
-              <li><Link href="/faq">FAQ</Link></li>
+              {/* <li><Link href="/docs">기술 문서</Link></li> */}
+              {/* <li><Link href="/blog">개발 블로그</Link></li> */}
+              {/* <li><Link href="/faq">FAQ</Link></li> */}
               <li><Link href="/contact" className="btn-primary">문의하기</Link></li>
             </ul>
           </div>
