@@ -13,7 +13,7 @@ const notoSansKR = Noto_Sans_KR({
 export const metadata: Metadata = {
   title: {
     default: 'Muricture 기업 블로그',
-    template: '%s | Muricture'
+    template: 'Muricture'
   },
   description: 'Muricture는 혁신적인 일정 관리와 일상 기록을 위한 솔루션을 제공합니다. Muricture 웹, Planaz 앱, 그리고 전문적인 Flutter/Next.js 외주 개발 서비스를 만나보세요.',
   keywords: ['Muricture', 'Planaz', '일정관리', '캘린더앱', 'Flutter개발', 'Next.js개발', '외주개발'],

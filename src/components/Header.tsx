@@ -14,7 +14,7 @@ export default function Header() {
           <div className="navbar-brand">
             <Link href="/" className="logo">
               <Image 
-                src="/images/muricture-logo.png" 
+                src="/images/muricture-logo.svg" 
                 alt="Muricture" 
                 width={200} 
                 height={50}
